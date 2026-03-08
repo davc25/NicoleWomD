@@ -14,6 +14,7 @@
 
   <body>
     <div class="container">
+      <audio id="myAudio" src="DAISIES.mp3" loop></audio>
       <div class="one">
         <h1 class="one">
           Hey
@@ -129,6 +130,20 @@
         <p class="last-smile">:)</p>
       </div>
     </div>
+    <script>
+  // Play audio when user clicks/taps anywhere on the screen
+  function playAudioOnClick() {
+    var audio = document.getElementById("myAudio");
+    audio.play().catch(() => {
+      console.log("Audio cannot play automatically.");
+    });
+
+    // Remove the listener after first click
+    window.removeEventListener('click', playAudioOnClick);
+  }
+
+  window.addEventListener('click', playAudioOnClick);
+</script>
   </body>
 
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
